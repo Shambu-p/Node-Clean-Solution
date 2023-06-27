@@ -1,0 +1,41 @@
+{
+	"db": {
+		"host": "localhost",
+		"database": "auth_management",
+		"user": "root",
+		"password": ""
+	},
+	"auth": {
+		"token_name": "authentication",
+		"secret_key": "hi_there",
+		"expire_after": 2
+	},
+	"identity": {
+		"hashed_properties": [
+			"Password"
+		],
+		"id": "Id",
+		"table": "User"
+	},
+	"mail": {
+		"Host": "mail.gameon01.com",
+		"Port": 465,
+		"Username": "_mainaccount@gameon01.com",
+		"Password": "letitbe_180790"
+	},
+	"fileUploadConfigurations": [
+		{
+			"category": "test",
+			"parameters": {
+				"sizeLimit": 5000000,
+				"fileType": [
+					"webp",
+					"png"
+				]
+			}
+		}
+	],
+	"fileUploadId": 2,
+	"uploadFolder": "C:/Projects/Authentication-Backend/Uploads",
+	"ServerPort": 5000
+}

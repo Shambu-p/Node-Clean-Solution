@@ -1,0 +1,7 @@
+Application/node_modules/
+Domain/node_modules/
+Infrastructure/node_modules/
+SmallApp/node_modules/
+.idea/
+Test/.nyc_output/
+Test/coverage/

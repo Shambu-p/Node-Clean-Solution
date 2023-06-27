@@ -1,0 +1,39 @@
+{
+  "name": "cleantest",
+  "version": "2.0.0",
+  "description": "Unit and Integration test for application build with Clean Architecture.",
+  "main": "TestSetup.ts",
+  "scripts": {
+    "test": "npx mocha \"./**/*.test.ts\" --recursive --exit",
+    "build": "tsc"
+  },
+  "author": "Abnet Kebede",
+  "license": "ISC",
+  "dependencies": {
+    "@types/bcrypt": "^5.0.0",
+    "Application": "file:../Application",
+    "bcrypt": "^5.1.0",
+    "Domain": "file:../Domain",
+    "fs": "^0.0.1-security",
+    "jsonwebtoken": "^9.0.0",
+    "mysql2": "^2.3.3",
+    "nodemailer": "^6.8.0"
+  },
+  "devDependencies": {
+    "@testdeck/mocha": "^0.3.3",
+    "@types/chai": "^4.3.4",
+    "@types/jest": "^29.5.2",
+    "@types/mocha": "^10.0.1",
+    "@types/node": "^18.11.17",
+    "@types/nodemailer": "^6.4.7",
+    "@types/sinon": "^10.0.13",
+    "chai": "^4.3.7",
+    "mocha": "^10.2.0",
+    "nyc": "^15.1.0",
+    "sinon": "^15.0.1",
+    "test": "^3.2.1",
+    "ts-mockito": "^2.6.1",
+    "ts-node": "^10.9.1",
+    "typescript": "^4.9.4"
+  }
+}

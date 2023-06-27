@@ -1,0 +1,21 @@
+{
+  // "ts-node": {
+  //   // these options are overrides used only by ts-node
+  //   "compilerOptions": {
+  //     "module": "commonjs"
+  //   }
+  // },
+  "compilerOptions": {
+    "target": "es2017",
+    "module": "CommonJS",
+    "allowJs": true,
+    "outDir": "build",
+    "rootDir": "./",
+    "strict": true,
+    "noImplicitAny": true,
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true
+  },
+  "include": ["./**/*"],
+  "exclude": ["node_modules", "test"]
+}
