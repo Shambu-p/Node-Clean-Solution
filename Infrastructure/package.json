@@ -24,7 +24,8 @@
     "jsonwebtoken": "^9.0.0",
     "mysql2": "^2.3.3",
     "nodemailer": "^6.8.0",
-    "semver-regex": "^4.0.5"
+    "semver-regex": "^4.0.5",
+    "sequelize": "^6.32.1"
   },
   "devDependencies": {
     "@types/formidable": "^2.0.6",
