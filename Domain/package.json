@@ -9,7 +9,8 @@
   "author": "Abnet Kebede",
   "license": "ISC",
   "dependencies": {
-    "@types/bcrypt": "^5.0.0"
+    "@types/bcrypt": "^5.0.0",
+    "typeorm": "^0.3.17"
   },
   "devDependencies": {
     "@types/node": "^18.11.17",

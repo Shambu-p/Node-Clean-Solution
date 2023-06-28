@@ -1,7 +1,7 @@
 import ConfigurationService from "./Services/ConfigurationService";
-import Database from "./DBModels/Database";
+import Database from "./Persistance/Database";
 import Authentication from "./Authentication/Authentication";
-import DBContext from "./DBModels/DBContext";
+import DBContext from "./Persistance/DBContext";
 import Identity from "./Authentication/Identity";
 import Mailer from "./SendMail/Mailer";
 
