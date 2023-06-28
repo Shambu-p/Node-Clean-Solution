@@ -16,13 +16,16 @@ export class CreateCategoryLogic implements HandlerInterface<CreateCategoryComma
 
     async Handle(request: CreateCategoryCommand): Promise<Response> {
         
-        this.Database.Categories.Add({
+        let category = this.Database.Categories.create({
             Id: null, 
             Name: request.Name
         });
 
-        let categories = await this.Database.Categories.Records();
+        this.Database.Categories.save(category);
+
+        // let categories = await this.Database.Categories.find();
         return Response.Succeded("operation successful");
+
     }
 
 }
