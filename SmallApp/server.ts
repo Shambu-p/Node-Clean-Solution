@@ -17,7 +17,7 @@ try {
     const port = configuration.getConfiguration("ServerPort");
     const application: HandlerResolver = ApplicationLibrary(
         infrastructure.Database, infrastructure.Authentication, 
-        infrastructure.Identity, infrastructure.Mailer
+        infrastructure.Identity, infrastructure.Mailer, infrastructure.Logger
     );
 
     app.use(bodyParser.urlencoded({ extended: false }));
