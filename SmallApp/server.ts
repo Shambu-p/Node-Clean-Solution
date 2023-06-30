@@ -5,6 +5,7 @@ import InfrastructureLibrary from "Infrastructure";
 import ApplicationLibrary from "Application";
 import IConfiguration from "Domain/Interfaces/IConfiguration";
 import bodyParser from "body-parser";
+import { HandlerResolver } from 'ABMediator';
 
 const app = express();
 const router = express.Router();
@@ -14,7 +15,7 @@ try {
     const infrastructure = InfrastructureLibrary();
     const configuration: IConfiguration = infrastructure.Configuration;
     const port = configuration.getConfiguration("ServerPort");
-    const application = ApplicationLibrary(
+    const application: HandlerResolver = ApplicationLibrary(
         infrastructure.Database, infrastructure.Authentication, 
         infrastructure.Identity, infrastructure.Mailer
     );

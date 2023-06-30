@@ -3,13 +3,14 @@ import HandlerInterface from "Domain/Interfaces/HandlerInterface";
 import IContext from "Domain/Interfaces/IContext";
 import PaginatedListInterface from "Domain/Interfaces/PaginatedListInterface";
 import PaginatedList from "../../../Common/Models/PaginatedList";
+import { IHandler } from "ABMediator";
 
 export interface GetCategories {
     PageNumber: number,
     PageSize: number
 };
 
-export class GetCategoriesHandler implements HandlerInterface<GetCategories, PaginatedListInterface<Category>> {
+export class GetCategoriesHandler implements IHandler<GetCategories, PaginatedListInterface<Category>> {
 
     Database: IContext
 

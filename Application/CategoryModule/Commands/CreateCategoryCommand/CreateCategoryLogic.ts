@@ -1,12 +1,13 @@
 import Response from "Domain/Model/Response";
 import HandlerInterface from "Domain/Interfaces/HandlerInterface";
 import IContext from "Domain/Interfaces/IContext";
+import { IHandler } from "ABMediator";
 
 export interface CreateCategoryCommand {
     Name: string
 }
 
-export class CreateCategoryLogic implements HandlerInterface<CreateCategoryCommand, Response> {
+export class CreateCategoryLogic implements IHandler<CreateCategoryCommand, Response> {
 
     Database: IContext
 
