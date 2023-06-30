@@ -16,6 +16,6 @@
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true
   },
-  "include": ["./**/*", "../Domain/Interfaces/AuthResult.ts"],
+  "include": ["./**/*"],
   "exclude": ["node_modules", "test"]
 }
