@@ -5,13 +5,16 @@ import DBContext from "./Persistance/DBContext";
 import Identity from "./Authentication/Identity";
 import Mailer from "./SendMail/Mailer";
 import IConfiguration from "Domain/Interfaces/IConfiguration";
+import ILogger from "Domain/Interfaces/ILogger";
+import LoggerService from "./Services/LoggerService";
 
 export default function lib (): {
     Database: DBContext,
     Authentication: Authentication
     Identity: Identity,
     Mailer: Mailer,
-    Configuration: IConfiguration
+    Configuration: IConfiguration,
+    Logger: ILogger
 } {
 
     let config = new ConfigurationService("../SmallApp/configuration.json");
@@ -24,7 +27,8 @@ export default function lib (): {
         Authentication: new Authentication(config.getConfiguration("auth"), ident),
         Identity: ident,
         Mailer: mail,
-        Configuration: config
+        Configuration: config,
+        Logger: new LoggerService()
     }
 
 };
