@@ -5,9 +5,9 @@ import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
 export default class CategoryBuilder implements Category {
 
     @PrimaryGeneratedColumn()
-    Id: number | null;
+    declare Id: number | null;
 
     @Column()
-    Name: string;
+    declare Name: string;
 
 }
