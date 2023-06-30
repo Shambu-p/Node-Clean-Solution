@@ -30,31 +30,5 @@ export default function (
     );
 
     return handlers;
-    // return {
-
-    //     categoryModule: {
-    //         /**
-    //          * this method could throw validation errors
-    //          * Creates Category using command passed to it
-    //          * @param command
-    //          */
-    //         createCategoryRequest: async function (command: CreateCategoryCommand): Promise<Response> {
-    //             new CreateCategoryValidator(command).Validate();
-    //             return await new CreateCategoryLogic(db).Handle(command);
-    //         },
-
-    //         /**
-    //          * this cmethod will return all saved categories
-    //          * on database
-    //          * @param command 
-    //          * @returns 
-    //          */
-    //         getAllCategories: async function (command: GetCategories): Promise<PaginatedListInterface<Category>> {
-    //             return await new GetCategoriesHandler(db).Handle(command);
-    //         }
-
-    //     },
-
-    // }
 
 };

@@ -5,7 +5,7 @@ export default class UserAuthorization {
 
     Context: IContext;
 
-    constructor(context: IContext){
+    constructor(context: IContext) {
         this.Context = context;
     }
 
