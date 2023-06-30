@@ -3,6 +3,7 @@ import express from 'express';
 import fs from 'fs';
 import InfrastructureLibrary from "Infrastructure";
 import ApplicationLibrary from "Application";
+import IConfiguration from "Domain/Interfaces/IConfiguration";
 import bodyParser from "body-parser";
 
 const app = express();
@@ -11,7 +12,7 @@ const router = express.Router();
 try {
 
     const infrastructure = InfrastructureLibrary();
-    const configuration = infrastructure.Configuration;
+    const configuration: IConfiguration = infrastructure.Configuration;
     const port = configuration.getConfiguration("ServerPort");
     const application = ApplicationLibrary(
         infrastructure.Database, infrastructure.Authentication, 
@@ -26,7 +27,7 @@ try {
      */
     app.use(async (req, res, next) => {
 
-        //middle ware can be written here
+        //middleware can be written here
         next();
 
     });

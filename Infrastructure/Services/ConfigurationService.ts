@@ -1,7 +1,8 @@
+import IConfiguration from "Domain/Interfaces/IConfiguration";
 const fs = require('fs');
 // const fs: any = {};
 
-class ConfigurationService {
+class ConfigurationService implements IConfiguration {
 
     private readonly FileAddress: string
 

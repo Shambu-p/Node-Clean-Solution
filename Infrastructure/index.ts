@@ -4,17 +4,18 @@ import Authentication from "./Authentication/Authentication";
 import DBContext from "./Persistance/DBContext";
 import Identity from "./Authentication/Identity";
 import Mailer from "./SendMail/Mailer";
+import IConfiguration from "Domain/Interfaces/IConfiguration";
 
 export default function lib (): {
     Database: DBContext,
     Authentication: Authentication
     Identity: Identity,
     Mailer: Mailer,
-    Configuration: ConfigurationService
+    Configuration: IConfiguration
 } {
 
     let config = new ConfigurationService("../SmallApp/configuration.json");
-    let db = new Database(config.getConfiguration("db"));
+    let db = new Database(config.getConfiguration("typeormdb"));
     let ident = new Identity(config.getConfiguration("identity"), db);
     let mail = new Mailer(config.getConfiguration("mail"));
 
