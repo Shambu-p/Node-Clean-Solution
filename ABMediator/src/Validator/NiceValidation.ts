@@ -1,15 +1,11 @@
-import ValidationException from "../Exceptions/ValidationException";
+import ValidationException from "./ValidationException";
 import ABValidator from "./ABValidator";
 
-export default class NiceValidation<T> {
+export default abstract class NiceValidation<T> {
 
-    Command: T
-    Props: Map<string, any>
+    declare Command: T
+    declare Props: Map<string, any>
 
-    constructor(command: T) {
-        this.Command = command;
-        this.Props = new Map<string, any>(Object.entries(new Object(command)));
-    }
 
     public async RuleAsync(propertyName: string, callback: (validator: ABValidator) => (Promise<ABValidator> | ABValidator)): Promise<void> {
 
@@ -37,6 +33,15 @@ export default class NiceValidation<T> {
 
     }
 
-    Validate(){}
+    async setUp(command: any){
+        
+        this.Command = command;
+        this.Props = new Map<string, any>(Object.entries(new Object(command)));
+
+        await this.Validate();
+
+    }
+
+    abstract Validate(): void;
 
 }
