@@ -9,6 +9,6 @@ export default interface AuthenticationInterface {
         user: T | null
     }>;
     Authorization<T>(authLogic?: (loggedUser: T) => Promise<boolean>): Promise<void>;
-    GetUser<T>(): T
+    GetUser<T>(): T;
 
 }

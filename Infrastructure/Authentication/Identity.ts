@@ -1,14 +1,15 @@
-import DBTable from "../DBModels/DBTable";
-import Database from "../DBModels/Database";
+import {DeleteResult, ObjectLiteral, Repository, UpdateResult} from "typeorm";
+import Database from "../Persistance/Database";
 import bcrypt from 'bcrypt';
+import IIdentity from "Domain/Interfaces/IIdentity";
 
 const jwt = require("jsonwebtoken");
 
 
-export default class Identity {
+export default class Identity implements IIdentity {
 
     private readonly HashedProperties: Array<string>
-    public readonly IdentifierName: string
+    public readonly IdentifierName: string;
     private readonly TableName: string
     private readonly DbConnection: Database
     private readonly SaltRounds = 8;
@@ -30,8 +31,9 @@ export default class Identity {
 
     }
 
-    getCollection<R>(): DBTable<R> {
-        return new DBTable<R>(this.DbConnection, this.TableName, this.IdentifierName);
+    getCollection<R extends ObjectLiteral>(): Repository<R> {
+        throw new Error("method not implemented yet!");
+        // return new DBTable<R>(this.DbConnection, this.TableName, this.IdentifierName);
     }
 
     private dataCleaner(obj: any): any {
@@ -51,24 +53,25 @@ export default class Identity {
 
     }
 
-    async Update<T>(user: T): Promise<boolean> {
+    async Update<T extends ObjectLiteral>(id: number, user: T): Promise<UpdateResult> {
 
         let dbTable = this.getCollection<T>();
-        return await dbTable.Update(this.dataCleaner(new Object(user)));
+        return await dbTable.update(id, user);
 
     }
 
-    async Create<T>(user: T): Promise<boolean> {
+    async Create<T extends ObjectLiteral>(user: T): Promise<T> {
 
         let dbTable = this.getCollection<T>();
-        return await dbTable.Add(this.dataCleaner(new Object(user)));
+        let data = dbTable.create(user);
+        return await dbTable.save(data);
 
     }
 
-    async Remove<T>(id: string | number): Promise<boolean> {
+    async Remove<T extends ObjectLiteral>(id: string | number): Promise<DeleteResult> {
 
         let dbTable = this.getCollection<T>();
-        return await dbTable.Delete(id);
+        return await dbTable.delete(id);
 
     }
 
