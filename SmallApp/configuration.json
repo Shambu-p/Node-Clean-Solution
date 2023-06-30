@@ -1,9 +1,18 @@
 {
 	"db": {
+		"type": "mysql",
 		"host": "localhost",
 		"database": "auth_management",
 		"user": "root",
 		"password": ""
+	},
+	"typeormdb": {
+		"type": "mysql",
+		"host": "localhost",
+		"port": 3306,
+		"username": "root",
+		"password": "",
+		"database": "auth_management"
 	},
 	"auth": {
 		"token_name": "authentication",
