@@ -2,13 +2,13 @@ import Category from "Domain/Entities/Category";
 import IContext from "Domain/Interfaces/IContext";
 import PaginatedListInterface from "Domain/Interfaces/PaginatedListInterface";
 import PaginatedList from "../../../Common/Models/PaginatedList";
-import { IHandler } from "ABMediator";
+import { Dependencies, IHandler } from "ABMediator";
 import ILogger from "Domain/Interfaces/ILogger";
 import LogLevel from "Domain/Enums/LogLevel";
 
-export interface GetCategories {
-    PageNumber: number,
-    PageSize: number
+export class GetCategories {
+    declare PageNumber: number;
+    declare PageSize: number;
 };
 
 export class GetCategoriesHandler implements IHandler<GetCategories, PaginatedListInterface<Category>> {

@@ -3,8 +3,8 @@ import IContext from "Domain/Interfaces/IContext";
 import { IHandler } from "ABMediator";
 import ILogger from "Domain/Interfaces/ILogger";
 import LogLevel from "Domain/Enums/LogLevel";
-export interface CreateCategoryCommand {
-    Name: string
+export class CreateCategoryCommand {
+    declare Name: string
 }
 
 export class CreateCategoryLogic implements IHandler<CreateCategoryCommand, Response> {
